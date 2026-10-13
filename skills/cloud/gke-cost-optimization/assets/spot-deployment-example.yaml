@@ -10,6 +10,8 @@ spec:
   replicas: 2
   template:
     spec:
+      securityContext:
+        runAsNonRoot: true
       nodeSelector:
         cloud.google.com/gke-spot: "true"
       terminationGracePeriodSeconds: 25  # Spot preemption gives ~30s notice — keep graceful shutdown within it
